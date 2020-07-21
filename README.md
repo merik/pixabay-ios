@@ -1,5 +1,9 @@
 #  Pixabay
 A single-view app that allows user to search images through Pixabay services.
+<p>
+<img src="/Screenshots/screenshot1.png" width="200">
+<img src="/Screenshots/screenshot2.png" width="200">
+<img src="/Screenshots/screenshot3.png" width="200">
 
 # Notes
 - Deployment target: iOS 11
