@@ -30,6 +30,7 @@
 		0397978924C5EA4F0013E6AF /* UIImageView+Pixabay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0397978824C5EA4F0013E6AF /* UIImageView+Pixabay.swift */; };
 		0397978B24C5F34A0013E6AF /* UISearchBar+Pixabay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0397978A24C5F34A0013E6AF /* UISearchBar+Pixabay.swift */; };
 		0397978D24C5FA200013E6AF /* UIImage+Pixabay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0397978C24C5FA200013E6AF /* UIImage+Pixabay.swift */; };
+		0397978F24C675890013E6AF /* UIColor+Pixabay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0397978E24C675890013E6AF /* UIColor+Pixabay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		0397978824C5EA4F0013E6AF /* UIImageView+Pixabay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Pixabay.swift"; sourceTree = "<group>"; };
 		0397978A24C5F34A0013E6AF /* UISearchBar+Pixabay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Pixabay.swift"; sourceTree = "<group>"; };
 		0397978C24C5FA200013E6AF /* UIImage+Pixabay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Pixabay.swift"; sourceTree = "<group>"; };
+		0397978E24C675890013E6AF /* UIColor+Pixabay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Pixabay.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +175,6 @@
 			children = (
 				036D996D24C5D4D900375825 /* Views */,
 				0353887024C5837400FC8E79 /* Models */,
-				0353886B24C581A400FC8E79 /* ImagesTableView */,
 				0353883D24C5807800FC8E79 /* ImageSearchViewController.swift */,
 				036D996924C5C21C00375825 /* ImageSearchViewModel.swift */,
 			);
@@ -222,6 +223,7 @@
 		036D996D24C5D4D900375825 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0353886B24C581A400FC8E79 /* ImagesTableView */,
 				036D996E24C5D6C300375825 /* LoadingStatusView.swift */,
 			);
 			path = Views;
@@ -241,6 +243,7 @@
 				0397978824C5EA4F0013E6AF /* UIImageView+Pixabay.swift */,
 				0397978A24C5F34A0013E6AF /* UISearchBar+Pixabay.swift */,
 				0397978C24C5FA200013E6AF /* UIImage+Pixabay.swift */,
+				0397978E24C675890013E6AF /* UIColor+Pixabay.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				0353883E24C5807800FC8E79 /* ImageSearchViewController.swift in Sources */,
 				0397978924C5EA4F0013E6AF /* UIImageView+Pixabay.swift in Sources */,
 				0353887224C5838900FC8E79 /* PixabayImage.swift in Sources */,
+				0397978F24C675890013E6AF /* UIColor+Pixabay.swift in Sources */,
 				036D996A24C5C21C00375825 /* ImageSearchViewModel.swift in Sources */,
 				036D996F24C5D6C300375825 /* LoadingStatusView.swift in Sources */,
 				0397978B24C5F34A0013E6AF /* UISearchBar+Pixabay.swift in Sources */,

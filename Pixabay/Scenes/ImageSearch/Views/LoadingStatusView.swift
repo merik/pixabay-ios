@@ -10,10 +10,11 @@ import UIKit
 
 class LoadingStatusView: UIView {
     
-    // FIXME: Unable to simultaneously satisfy constraints.
+    private var loadingView: UIView!
+    private var messageLabel: UILabel!
     
     private var indicator: UIActivityIndicatorView!
-    private var label: UILabel!
+    private var loadingLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,20 +27,59 @@ class LoadingStatusView: UIView {
     }
     
     private func configure() {
+        
         let indicator = UIActivityIndicatorView(style: .gray)
         indicator.startAnimating()
         self.indicator = indicator
         
         let label = UILabel()
         label.text = "Loading"
-        self.label = label
+        label.textAlignment = .left
+        self.loadingLabel = label
         
-        self.addSubview(indicator)
-        self.addSubview(label)
+        let view = UIView()
+        self.loadingView = view
         
         indicator.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         
+        view.addSubview(indicator)
+        view.addSubview(label)
+        
+        let messageLabel = UILabel()
+        messageLabel.text = ""
+        messageLabel.textAlignment = .center
+        self.messageLabel = messageLabel
+        
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addSubview(view)
+        self.addSubview(messageLabel)
+        
+        configureConstraints()
+        
+        hide()
+    }
+    
+    private func configureConstraints() {
+        let constraints = [
+            loadingView.widthAnchor.constraint(equalToConstant: 80),
+            loadingView.topAnchor.constraint(equalTo: topAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            loadingView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            indicator.leadingAnchor.constraint(equalTo: loadingView.leadingAnchor),
+            indicator.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor),
+            loadingLabel.leadingAnchor.constraint(equalTo: indicator.trailingAnchor, constant: 5),
+            loadingLabel.trailingAnchor.constraint(equalTo: loadingView.trailingAnchor),
+            loadingLabel.heightAnchor.constraint(equalToConstant: 21),
+            loadingLabel.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor),
+            messageLabel.topAnchor.constraint(equalTo: topAnchor),
+            messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ]
+        NSLayoutConstraint.activate(constraints)
     }
     
     var status: ImageSearchResult = .searching {
@@ -59,37 +99,15 @@ class LoadingStatusView: UIView {
     
     private func showLoading() {
         self.isHidden = false
-        self.indicator.isHidden = false
-        label.textAlignment = .left
-        label.text = "Loading"
-        resetConstraints()
-        NSLayoutConstraint.activate([
-            indicator.leadingAnchor.constraint(equalTo: leadingAnchor),
-            indicator.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.leadingAnchor.constraint(equalTo: indicator.trailingAnchor, constant: 5),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            label.heightAnchor.constraint(equalToConstant: 21),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
+        self.messageLabel.isHidden = true
+        self.loadingView.isHidden = false
     }
     
     private func showNoResults() {
         self.isHidden = false
-        self.indicator.isHidden = true
-        label.text = "No Results"
-        label.textAlignment = .center
-        resetConstraints()
-        NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            label.heightAnchor.constraint(equalToConstant: 21),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
-    }
-    
-    private func resetConstraints() {
-        //label.removeConstraints(label.constraints)
-        //indicator.removeConstraints(indicator.constraints)
+        self.loadingView.isHidden = true
+        self.messageLabel.isHidden = false
+        self.messageLabel.text = "No Results"
     }
     
     private func hide() {
@@ -98,15 +116,9 @@ class LoadingStatusView: UIView {
     
     private func showError(_ message: String) {
         self.isHidden = false
-        self.indicator.isHidden = true
-        label.textAlignment = .center
-        label.text = message
-        resetConstraints()
-        NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            label.heightAnchor.constraint(equalToConstant: 21),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
+        self.loadingView.isHidden = true
+        self.messageLabel.isHidden = false
+        self.messageLabel.text = message
+       
     }
 }

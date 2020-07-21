@@ -25,17 +25,20 @@ class ImageSearchViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.title = "Pixabay"
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
         configureSearchBar()
         bindToViewModel()
     }
     
     private func configureSearchBar() {
-        searchBar.backgroundImage = UIImage.imageFromColor(.lightGray)
-        searchBar.prompt = "Pixabay"
-        searchBar.changePromptFont(UIFont.systemFont(ofSize: 16, weight: .heavy))
-       
+        searchBar.backgroundImage = UIImage()
+        searchBar.prompt = ""
         searchBar.placeholder = "Search"
-       searchBar.delegate = self
+        searchBar.delegate = self
     }
 
     private func bindToViewModel() {

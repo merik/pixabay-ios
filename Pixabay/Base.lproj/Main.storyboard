@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Nl-QA-iEp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -17,19 +17,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89t-bG-1Wh" customClass="LoadingStatusView" customModule="Pixabay" customModuleProvider="target">
-                                <rect key="frame" x="157" y="132" width="100" height="30"/>
+                                <rect key="frame" x="16" y="164" width="382" height="30"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="2US-QQ-hMZ"/>
                                     <constraint firstAttribute="height" constant="30" id="gtB-WD-qOj"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Uc-eN-3Jw" customClass="ImagesTableView" customModule="Pixabay" customModuleProvider="target">
-                                <rect key="frame" x="8" y="116" width="398" height="780"/>
+                                <rect key="frame" x="8" y="148" width="398" height="748"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="M9m-Xi-wFT">
-                                <rect key="frame" x="4" y="56" width="406" height="56"/>
+                                <rect key="frame" x="4" y="88" width="406" height="56"/>
                                 <color key="barTintColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -37,17 +36,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="M9m-Xi-wFT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="AYx-qC-MA6"/>
+                            <constraint firstItem="89t-bG-1Wh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Epg-nc-jbe"/>
                             <constraint firstItem="89t-bG-1Wh" firstAttribute="top" secondItem="M9m-Xi-wFT" secondAttribute="bottom" constant="20" id="KXi-qa-vfY"/>
                             <constraint firstItem="M9m-Xi-wFT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-4" id="Np0-Ri-cXy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="89t-bG-1Wh" secondAttribute="trailing" constant="16" id="TGu-oX-7Dk"/>
                             <constraint firstItem="9Uc-eN-3Jw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="UAH-AC-Q5M"/>
-                            <constraint firstItem="89t-bG-1Wh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bID-2o-dnt"/>
-                            <constraint firstItem="M9m-Xi-wFT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="pKU-Uk-c7I"/>
+                            <constraint firstItem="M9m-Xi-wFT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pKU-Uk-c7I"/>
                             <constraint firstItem="9Uc-eN-3Jw" firstAttribute="top" secondItem="M9m-Xi-wFT" secondAttribute="bottom" constant="4" id="s4P-EW-Pbz"/>
                             <constraint firstAttribute="bottom" secondItem="9Uc-eN-3Jw" secondAttribute="bottom" id="tdE-ZV-dkH"/>
                             <constraint firstItem="9Uc-eN-3Jw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-8" id="vez-9Q-LuG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Pixabay" largeTitleDisplayMode="never" id="OgQ-un-PHk"/>
                     <connections>
                         <outlet property="loadingStatusView" destination="89t-bG-1Wh" id="u9y-E4-lDD"/>
                         <outlet property="searchBar" destination="M9m-Xi-wFT" id="J4y-46-5He"/>
@@ -55,6 +56,24 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="alt-xb-u5Q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Nl-QA-iEp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GOn-HH-QHB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Yhd-yB-hyS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="66U-tq-uFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>

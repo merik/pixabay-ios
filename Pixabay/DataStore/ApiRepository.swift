@@ -14,7 +14,8 @@ class ApiRepository: Repository {
         PixabayApiService.shared.searchData(with: .search, keyword: keyword, page: page, perPage: perPage, completion: {(data, error) in
             
             if let error = error {
-                completion(.failure(PixabayError(message: error.localizedDescription)))
+                let errorMessage = (error as NSError).userInfo["errorMessage"] as? String ?? "Error Occurred"
+                completion(.failure(PixabayError(message: errorMessage)))
                 return
             }
             
@@ -81,8 +82,31 @@ struct PixabayApiService {
             return
         }
         
-        urlSession.dataTask(with: url) { (data, _, error) in
-            completion(data, error)
+        urlSession.dataTask(with: url) { (data, response, error) in
+            guard let response = response as? HTTPURLResponse else {
+                completion(nil, NSError(domain: "", code: 100, userInfo: ["errorMessage": "Invalid Response"]))
+                return
+                
+            }
+                
+            switch response.statusCode {
+                case 200...299:
+                    completion(data, error)
+                
+                // Error
+                case 401...500: fallthrough
+                case 501...599: fallthrough
+                case 600: fallthrough
+                default:
+                    guard let data = data else {
+                        completion(nil, NSError(domain: "", code: 100, userInfo: ["errorMessage": "Invalid Response"]))
+                        return
+                    }
+                    
+                    completion(data, NSError(domain: "", code: response.statusCode, userInfo: ["errorMessage": String(data: data, encoding: .utf8) as Any]))
+                    
+            }
+           
         }.resume()
     }
     

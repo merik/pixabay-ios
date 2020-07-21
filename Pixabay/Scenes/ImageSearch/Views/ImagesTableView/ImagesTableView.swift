@@ -55,6 +55,7 @@ class ImagesTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = self.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? ImagesTableViewCell {
+            cell.selectionStyle = .none
             let image = images[indexPath.row]
             cell.setImage(image)
             return cell

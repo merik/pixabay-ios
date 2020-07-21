@@ -11,7 +11,8 @@ import UIKit
 class ImagesTableViewCell: UITableViewCell {
     
     static let reuseIdentifierString = "ImagesTableViewCell"
-
+    let defaultImageColorCode: UInt64 = 0xc6c6c8
+    
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
@@ -32,8 +33,8 @@ class ImagesTableViewCell: UITableViewCell {
         
     }
     
-    var defaultImage: UIImage? {
-        return UIImage.imageFromColor(.gray)
+    private var defaultImage: UIImage? {
+        return UIImage.imageFromColor(UIColor(hexRGBValue: defaultImageColorCode))
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
