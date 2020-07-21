@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89t-bG-1Wh" customClass="LoadingStatusView" customModule="Pixabay" customModuleProvider="target">
-                                <rect key="frame" x="16" y="164" width="382" height="30"/>
+                                <rect key="frame" x="16" y="180" width="382" height="30"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gtB-WD-qOj"/>
@@ -37,7 +37,7 @@
                         <constraints>
                             <constraint firstItem="M9m-Xi-wFT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="AYx-qC-MA6"/>
                             <constraint firstItem="89t-bG-1Wh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Epg-nc-jbe"/>
-                            <constraint firstItem="89t-bG-1Wh" firstAttribute="top" secondItem="M9m-Xi-wFT" secondAttribute="bottom" constant="20" id="KXi-qa-vfY"/>
+                            <constraint firstItem="89t-bG-1Wh" firstAttribute="top" secondItem="M9m-Xi-wFT" secondAttribute="bottom" constant="36" id="KXi-qa-vfY"/>
                             <constraint firstItem="M9m-Xi-wFT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-4" id="Np0-Ri-cXy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="89t-bG-1Wh" secondAttribute="trailing" constant="16" id="TGu-oX-7Dk"/>
                             <constraint firstItem="9Uc-eN-3Jw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="UAH-AC-Q5M"/>

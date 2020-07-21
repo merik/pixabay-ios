@@ -10,6 +10,8 @@ import UIKit
 
 class LoadingStatusView: UIView {
     
+    let messageTextColorCode: UInt64 = 0x676767
+    
     private var loadingView: UIView!
     private var messageLabel: UILabel!
     
@@ -35,6 +37,8 @@ class LoadingStatusView: UIView {
         let label = UILabel()
         label.text = "Loading"
         label.textAlignment = .left
+        label.textColor = UIColor(hexRGBValue: messageTextColorCode)
+        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         self.loadingLabel = label
         
         let view = UIView()
@@ -49,6 +53,7 @@ class LoadingStatusView: UIView {
         let messageLabel = UILabel()
         messageLabel.text = ""
         messageLabel.textAlignment = .center
+        messageLabel.textColor = UIColor(hexRGBValue: messageTextColorCode)
         self.messageLabel = messageLabel
         
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +75,7 @@ class LoadingStatusView: UIView {
             loadingView.centerXAnchor.constraint(equalTo: centerXAnchor),
             indicator.leadingAnchor.constraint(equalTo: loadingView.leadingAnchor),
             indicator.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor),
-            loadingLabel.leadingAnchor.constraint(equalTo: indicator.trailingAnchor, constant: 5),
+            loadingLabel.leadingAnchor.constraint(equalTo: indicator.trailingAnchor, constant: 10),
             loadingLabel.trailingAnchor.constraint(equalTo: loadingView.trailingAnchor),
             loadingLabel.heightAnchor.constraint(equalToConstant: 21),
             loadingLabel.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor),
