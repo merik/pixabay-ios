@@ -51,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0336172624C68B67009BD281 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0353883624C5807800FC8E79 /* Pixabay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pixabay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0353883924C5807800FC8E79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0353883B24C5807800FC8E79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		0353882D24C5807800FC8E79 = {
 			isa = PBXGroup;
 			children = (
+				0336172624C68B67009BD281 /* README.md */,
 				0353883824C5807800FC8E79 /* Pixabay */,
 				0353884F24C5807C00FC8E79 /* PixabayTests */,
 				0353885A24C5807C00FC8E79 /* PixabayUITests */,
