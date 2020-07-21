@@ -10,8 +10,8 @@ import Foundation
 
 class ApiRepository: Repository {
     
-    func searchImages(with keyword: String, completion: @escaping (Result<[PixabayImage], PixabayError>) -> Void) {
-        PixabayApiService.shared.searchData(with: .search, search: keyword, completion: {(data, error) in
+    func searchImages(with keyword: String, page: Int, perPage: Int, completion: @escaping (Result<[PixabayImage], PixabayError>) -> Void) {
+        PixabayApiService.shared.searchData(with: .search, keyword: keyword, page: page, perPage: perPage, completion: {(data, error) in
             
             if let error = error {
                 completion(.failure(PixabayError(message: error.localizedDescription)))
@@ -59,30 +59,32 @@ struct PixabayApiService {
         return components
     }
     
-    func searchData(with resources: PixabayApiResources, search: String, completion: @escaping(Data?, Error?) -> Void) {
+    func searchData(with resources: PixabayApiResources, keyword: String, page: Int, perPage: Int, completion: @escaping(Data?, Error?) -> Void) {
         
-           fetch(with: resources, parameters: [
+        fetch(with: resources, parameters: [
                 "key": self.key,
                 "image_type": "photo",
-                "q": search
-           ], completion: completion)
+                "q": keyword,
+                "page": "\(page)",
+                "per_page": "\(perPage)"
+        ], completion: completion)
     }
     
     private func fetch(with resources: PixabayApiResources, parameters: [String: String], completion: @escaping(Data?, Error?) -> Void) {
         
-           var urlComponents = self.urlComponents
+        var urlComponents = self.urlComponents
         urlComponents.path = "/api/\(resources.rawValue)"
-           urlComponents.setQueryItems(with: parameters)
+        urlComponents.setQueryItems(with: parameters)
         
-           guard let url = urlComponents.url else {
-               completion(nil, NSError(domain: "", code: 100, userInfo: nil))
-               return
-           }
+        guard let url = urlComponents.url else {
+            completion(nil, NSError(domain: "", code: 100, userInfo: ["errorMessage": "Invalid Url"]))
+            return
+        }
         
-           urlSession.dataTask(with: url) { (data, _, error) in
-               completion(data, error)
-           }.resume()
-       }
+        urlSession.dataTask(with: url) { (data, _, error) in
+            completion(data, error)
+        }.resume()
+    }
     
 }
 

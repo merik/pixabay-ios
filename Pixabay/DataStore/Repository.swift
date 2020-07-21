@@ -13,6 +13,5 @@ struct PixabayError: Error {
 }
 
 protocol Repository {
-    // TODO: enforce max images = 50
-    func searchImages(with keyword: String, completion: @escaping(Result<[PixabayImage], PixabayError>) -> Void)
+    func searchImages(with keyword: String, page: Int, perPage: Int, completion: @escaping(Result<[PixabayImage], PixabayError>) -> Void)
 }

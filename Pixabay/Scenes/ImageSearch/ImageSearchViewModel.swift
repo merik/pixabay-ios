@@ -16,6 +16,10 @@ enum ImageSearchResult {
 }
 
 class ImageSearchViewModel {
+    
+    private let page = 1        // Display first 50 photos
+    private let perPage = 50    //
+    
     var didFinishSearching: ((ImageSearchResult) -> Void)?
     
     private let repository: Repository
@@ -28,7 +32,7 @@ class ImageSearchViewModel {
         
         didFinishSearching?(.searching)
         
-        repository.searchImages(with: keyword, completion: {[weak self] result in
+        repository.searchImages(with: keyword, page: page, perPage: perPage, completion: {[weak self] result in
             switch result {
             case .success(let images):
                 
