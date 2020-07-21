@@ -25,7 +25,7 @@ class ImageLoader {
         }
         
         guard let url = URL(string: urlString) else {
-            completion(.failure(NSError(domain: "", code: -1, userInfo: nil)))
+            completion(.failure(NSError(domain: "", code: -1, userInfo: ["errorMessage": "Invalid Url"])))
             return nil
         }
         
@@ -59,7 +59,7 @@ class ImageLoader {
     }
     
     func cancelLoad(_ uuid: UUID) {
-      runningRequests[uuid]?.cancel()
-      runningRequests.removeValue(forKey: uuid)
+        runningRequests[uuid]?.cancel()
+        runningRequests.removeValue(forKey: uuid)
     }
 }
